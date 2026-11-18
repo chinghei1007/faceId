@@ -69,3 +69,7 @@ Faces that cannot be confidently clustered are assigned a new `Person NNN` ident
 The importer accepts either a server-local path or a folder dropped into the browser. The Browse folder control uses directory selection, preserves relative file names, uploads the selected files into a local staging directory, and starts the same processing job. No cloud upload is used; the upload is only to the local FastAPI process.
 
 Definition imports are versioned. The default **Keep as new version** preserves the previous definition set for history and disables nothing. **Replace active version** soft-disables the prior set from the same source path before importing the new one. Person labels are stored on identities, so disabling or deleting a definition does not erase a label; automatic mapping only fills a default `Person NNN` label and never overwrites a label that was already customized.
+
+## Automatic development ports
+
+`npm run dev` now probes for free ports instead of failing when 8000 or 5173 is occupied. It prints the selected API and web URLs and passes the selected API URL into Vite automatically. Set `FACEID_API_PORT` or `FACEID_WEB_PORT` to choose preferred starting ports.

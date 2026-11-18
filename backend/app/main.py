@@ -14,7 +14,7 @@ from .captioning import get_caption_provider
 from .schemas import DefinitionOut, DefinitionParseRequest, FaceOut, ImportRequest, JobEventOut, JobOut, MergeRequest, PersonOut, PhotoOut, ReassignRequest, RenameRequest, RetryRequest, SplitRequest
 
 app=FastAPI(title="faceId", version="0.1.0")
-app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173","http://127.0.0.1:5173"], allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173","http://127.0.0.1:5173"], allow_origin_regex=r"http://(localhost|127\.0\.0\.1):\d+", allow_methods=["*"], allow_headers=["*"])
 
 def db():
     s=SessionLocal()

@@ -2,7 +2,7 @@
   "name": "faceid-local",
   "private": true,
   "scripts": {
-    "dev": "concurrently -k -n api,web -c blue,green \"npm run dev:api\" \"npm run dev:web\"",
+    "dev": "node scripts/dev.mjs",
     "dev:api": "python3 -m uvicorn app.main:app --app-dir backend --reload --host 127.0.0.1 --port 8000",
     "dev:web": "npm --prefix frontend run dev -- --host 127.0.0.1 --port 5173",
     "build:frontend": "npm --prefix frontend run build",
